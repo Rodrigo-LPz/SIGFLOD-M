@@ -1,0 +1,21 @@
+git --version
+git update-git-for-windows -y
+
+flutter config --version
+flutter upgrade
+
+flutter doctor
+flutter doctor --android-licenses
+
+flutter clean
+
+flutter pub get
+flutter pub outdated
+flutter pub upgrade
+flutter pub upgrade --major-versions
+
+flutter analyze
+
+flutter run
+
+flutter devices
