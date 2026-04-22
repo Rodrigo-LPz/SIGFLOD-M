@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../config/theme/app_spacing.dart';
 import '../../../../config/theme/app_text_styles.dart';
+import '../../../../core/routes/app_routes.dart';
 import '../../../../shared/widgets/app_button.dart';
 import '../../../../shared/widgets/app_card.dart';
 
@@ -54,7 +55,12 @@ class TemplatePreviewPage extends StatelessWidget {
 
             AppButton(
               label: 'Guardar',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.popUntil(
+                  context,
+                  ModalRoute.withName(AppRoutes.templates),
+                );
+              },
             ),
           ],
         ),

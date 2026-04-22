@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../../../config/theme/app_spacing.dart';
 import '../../../../config/theme/app_text_styles.dart';
+import '../../../../core/routes/app_routes.dart';
 import '../../../../shared/widgets/app_button.dart';
 import '../../../../shared/widgets/app_card.dart';
+
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
@@ -24,6 +26,49 @@ class DashboardPage extends StatelessWidget {
             const Text(
               'Bienvenido/a Rodrigo',
               style: AppTextStyles.headline,
+            ),
+
+            const SizedBox(height: AppSpacing.xl),
+            
+            const Text(
+              'Accesos rápidos',
+              style: AppTextStyles.title,
+            ),
+
+            const SizedBox(height: AppSpacing.md),
+
+            AppButton(
+              label: 'Mis Pacientes',
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  AppRoutes.patientsList,
+                );
+              },
+            ),
+
+            const SizedBox(height: AppSpacing.sm),
+
+            AppButton(
+              label: 'Plantillas',
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  AppRoutes.templates,
+                );
+              },
+            ),
+
+            const SizedBox(height: AppSpacing.sm),
+
+            AppButton(
+              label: 'Nueva Actividad',
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  AppRoutes.createActivity,
+                );
+              },
             ),
 
             const SizedBox(height: AppSpacing.xl),
@@ -73,13 +118,6 @@ class DashboardPage extends StatelessWidget {
               name: 'Aday Perdomo',
               detail: 'Auditado hace 3 días',
             ),
-
-            const SizedBox(height: AppSpacing.xl),
-
-            AppButton(
-              label: 'Nueva Actividad',
-              onPressed: () {},
-            ),
           ],
         ),
       ),
@@ -98,30 +136,38 @@ class _ActivityCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppCard(
-      margin: const EdgeInsets.only(bottom: AppSpacing.md),
-      padding: const EdgeInsets.all(AppSpacing.md),
-      child: Row(
-        children: [
-          const Icon(Icons.extension, size: 30),
-          const SizedBox(width: AppSpacing.md),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: AppTextStyles.body,
-                ),
-                const SizedBox(height: AppSpacing.xs),
-                Text(
-                  subtitle,
-                  style: AppTextStyles.bodySecondary,
-                ),
-              ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          AppRoutes.createActivity,
+        );
+      },
+      child: AppCard(
+        margin: const EdgeInsets.only(bottom: AppSpacing.md),
+        padding: const EdgeInsets.all(AppSpacing.md),
+        child: Row(
+          children: [
+            const Icon(Icons.extension, size: 30),
+            const SizedBox(width: AppSpacing.md),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: AppTextStyles.body,
+                  ),
+                  const SizedBox(height: AppSpacing.xs),
+                  Text(
+                    subtitle,
+                    style: AppTextStyles.bodySecondary,
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -151,6 +197,12 @@ class _ProgressTile extends StatelessWidget {
         detail,
         style: AppTextStyles.bodySecondary,
       ),
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          AppRoutes.patientDetail,
+        );
+      },
     );
   }
 }

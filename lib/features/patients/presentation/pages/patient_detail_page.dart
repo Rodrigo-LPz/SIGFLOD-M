@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../config/theme/app_spacing.dart';
 import '../../../../config/theme/app_text_styles.dart';
+import '../../../../core/routes/app_routes.dart';
 import '../../../../shared/widgets/app_button.dart';
 import '../../../../shared/widgets/app_card.dart';
 
@@ -43,17 +44,33 @@ class PatientDetailPage extends StatelessWidget {
               children: [
                 AppButton(
                   label: 'Añadir Imagen',
-                  onPressed: () {},
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('La gestión de imágenes se implementará en una fase posterior.'),
+                      ),
+                    );
+                  },
                 ),
                 const SizedBox(height: AppSpacing.sm),
                 AppButton(
                   label: 'Registrar Actividad',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      AppRoutes.createActivity,
+                    );
+                  },
                 ),
                 const SizedBox(height: AppSpacing.sm),
                 AppButton(
                   label: 'Editar Ficha',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      AppRoutes.createPatient,
+                    );
+                  },
                 ),
               ],
             ),
@@ -110,31 +127,31 @@ class _ExerciseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  return AppCard(
-    margin: const EdgeInsets.only(bottom: AppSpacing.md),
-    padding: const EdgeInsets.all(AppSpacing.md),
-    child: Row(
-        children: [
-          const Icon(Icons.check_circle_outline),
-          const SizedBox(width: AppSpacing.md),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: AppTextStyles.body,
-                ),
-                const SizedBox(height: AppSpacing.xs),
-                Text(
-                  subtitle,
-                  style: AppTextStyles.bodySecondary,
-                ),
-              ],
+    return AppCard(
+      margin: const EdgeInsets.only(bottom: AppSpacing.md),
+      padding: const EdgeInsets.all(AppSpacing.md),
+      child: Row(
+          children: [
+            const Icon(Icons.check_circle_outline),
+            const SizedBox(width: AppSpacing.md),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: AppTextStyles.body,
+                  ),
+                  const SizedBox(height: AppSpacing.xs),
+                  Text(
+                    subtitle,
+                    style: AppTextStyles.bodySecondary,
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
     );
   }
 }

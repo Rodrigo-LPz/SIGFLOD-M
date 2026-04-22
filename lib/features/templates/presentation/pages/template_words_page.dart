@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../config/theme/app_spacing.dart';
 import '../../../../config/theme/app_text_styles.dart';
+import '../../../../core/routes/app_routes.dart';
 import '../../../../shared/widgets/app_button.dart';
 import '../../../../shared/widgets/app_card.dart';
 import '../../../../shared/widgets/app_text_field.dart';
@@ -60,7 +61,12 @@ class TemplateWordsPage extends StatelessWidget {
 
             AppButton(
               label: 'Continuar',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  AppRoutes.templateSettings,
+                );
+              },
             ),
           ],
         ),

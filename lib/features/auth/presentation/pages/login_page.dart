@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../config/theme/app_colors.dart';
 import '../../../../config/theme/app_spacing.dart';
 import '../../../../config/theme/app_text_styles.dart';
+import '../../../../core/routes/app_routes.dart';
 import '../../../../shared/widgets/app_button.dart';
 import '../../../../shared/widgets/app_text_field.dart';
 import '../bloc/login_cubit.dart';
@@ -43,6 +44,7 @@ class _LoginView extends StatelessWidget {
 
               const SizedBox(height: AppSpacing.lg),
 
+              // Título
               const Text(
                 'Portal de Gestión',
                 style: AppTextStyles.headline,
@@ -87,7 +89,12 @@ class _LoginView extends StatelessWidget {
 
               AppButton(
                 label: 'Acceder',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacementNamed(
+                    context,
+                    AppRoutes.dashboard,
+                  );
+                },
               ),
 
               const Spacer(),

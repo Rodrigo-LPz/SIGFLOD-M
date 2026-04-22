@@ -16,7 +16,7 @@ class CreatePatientPage extends StatelessWidget {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24),
+        padding: const EdgeInsets.all(AppSpacing.lg),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -68,7 +68,9 @@ class CreatePatientPage extends StatelessWidget {
 
             AppButton(
               label: 'Guardar Paciente',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
           ],
         ),

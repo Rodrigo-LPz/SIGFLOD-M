@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../config/theme/app_spacing.dart';
 import '../../../../config/theme/app_text_styles.dart';
+import '../../../../core/routes/app_routes.dart';
 import '../../../../shared/widgets/app_card.dart';
 
 
@@ -44,21 +45,29 @@ class _TypeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppCard(
-      margin: const EdgeInsets.only(bottom: AppSpacing.md),
-      padding: const EdgeInsets.symmetric(
-        vertical: AppSpacing.md,
-        horizontal: AppSpacing.md,
-      ),
-      child: Row(
-        children: [
-          const Icon(Icons.arrow_forward_ios, size: 18),
-          const SizedBox(width: AppSpacing.md),
-          Text(
-            title,
-            style: AppTextStyles.body,
-          ),
-        ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          AppRoutes.templateConfig,
+        );
+      },
+      child: AppCard(
+        margin: const EdgeInsets.only(bottom: AppSpacing.md),
+        padding: const EdgeInsets.symmetric(
+          vertical: AppSpacing.md,
+          horizontal: AppSpacing.md,
+        ),
+        child: Row(
+          children: [
+            const Icon(Icons.arrow_forward_ios, size: 18),
+            const SizedBox(width: AppSpacing.md),
+            Text(
+              title,
+              style: AppTextStyles.body,
+            ),
+          ],
+        ),
       ),
     );
   }

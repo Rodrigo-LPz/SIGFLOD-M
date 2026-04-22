@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../config/theme/app_spacing.dart';
 import '../../../../config/theme/app_text_styles.dart';
+import '../../../../core/routes/app_routes.dart';
 import '../../../../shared/widgets/app_button.dart';
 import '../../../../shared/widgets/app_card.dart';
 import '../../../../shared/widgets/app_text_field.dart';
@@ -23,7 +24,12 @@ class PatientsListPage extends StatelessWidget {
             // Botón añadir paciente
             AppButton(
               label: 'Añadir Paciente',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  AppRoutes.createPatient,
+                );
+              },
             ),
 
             const SizedBox(height: AppSpacing.md),
@@ -76,34 +82,41 @@ class _PatientCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppCard(
-      margin: const EdgeInsets.only(bottom: AppSpacing.md),
-      padding: const EdgeInsets.all(AppSpacing.md),
-      child: Row(
-        children: [
-          const CircleAvatar(
-            radius: 25,
-            child: Icon(Icons.person),
-          ),
-          const SizedBox(width: AppSpacing.md),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  name,
-                  style: AppTextStyles.body,
-                ),
-                const SizedBox(height: AppSpacing.xs),
-                Text(
-                  detail,
-                  style: AppTextStyles.bodySecondary,
-
-                ),
-              ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          AppRoutes.patientDetail,
+        );
+      },
+      child: AppCard(
+        margin: const EdgeInsets.only(bottom: AppSpacing.md),
+        padding: const EdgeInsets.all(AppSpacing.md),
+        child: Row(
+          children: [
+            const CircleAvatar(
+              radius: 25,
+              child: Icon(Icons.person),
             ),
-          ),
-        ],
+            const SizedBox(width: AppSpacing.md),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    style: AppTextStyles.body,
+                  ),
+                  const SizedBox(height: AppSpacing.xs),
+                  Text(
+                    detail,
+                    style: AppTextStyles.bodySecondary,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

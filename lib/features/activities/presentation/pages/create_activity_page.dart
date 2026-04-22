@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../config/theme/app_spacing.dart';
 import '../../../../config/theme/app_text_styles.dart';
+import '../../../../core/routes/app_routes.dart';
 import '../../../../shared/widgets/app_button.dart';
 import '../../../../shared/widgets/app_card.dart';
 
@@ -58,9 +59,14 @@ class _PatientSection extends StatelessWidget {
               style: AppTextStyles.bodySecondary,
             ),
             trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                AppRoutes.patientsList,
+              );
+            },
           ),
         ),
-
       ],
     );
   }
@@ -92,9 +98,14 @@ class _TemplateSection extends StatelessWidget {
               style: AppTextStyles.bodySecondary,
             ),
             trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                AppRoutes.templates,
+              );
+            },
           ),
         ),
-
       ],
     );
   }
@@ -139,9 +150,12 @@ class _SettingsSection extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: const [
               Icon(Icons.remove),
-              SizedBox(width: 10),
-              Text('5'),
-              SizedBox(width: 10),
+              SizedBox(width: AppSpacing.sm),
+              Text(
+                '5',
+                style: AppTextStyles.body,
+              ),
+              SizedBox(width: AppSpacing.sm),
               Icon(Icons.add),
             ],
           ),
@@ -181,7 +195,12 @@ class _StartButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppButton(
       label: 'Iniciar Actividad',
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(
+          context,
+          AppRoutes.templatePreview,
+        );
+      },
     );
   }
 }
