@@ -1,18 +1,29 @@
 import 'package:flutter/material.dart';
 import '../../config/theme/app_text_styles.dart';
-import '../../config/theme/app_colors.dart';
-import '../../config/theme/app_spacing.dart';
 
 
 // 🔤 Campo de texto reutilizable de la app
 class AppTextField extends StatelessWidget {
-
+  // 🔹 Texto que aparece como nombre del campo
   final String label;
+
+  // 🔹 Texto de ayuda dentro del input
   final String? hint;
+
+  // 🔹 Controlador opcional por si más adelante lo necesitamos
   final TextEditingController? controller;
+
+  // 🔹 Permite ocultar texto, útil para contraseñas
   final bool obscureText;
+
+  // 🔹 Tipo de teclado que se quiere mostrar
   final TextInputType keyboardType;
+
+  // 🔹 Número máximo de líneas
   final int maxLines;
+
+  // 🔹 Callback para escuchar lo que el usuario va escribiendo
+  final ValueChanged<String>? onChanged;
 
   const AppTextField({
     super.key,
@@ -22,6 +33,7 @@ class AppTextField extends StatelessWidget {
     this.obscureText = false,
     this.keyboardType = TextInputType.text,
     this.maxLines = 1,
+    this.onChanged,
   });
 
   @override
@@ -29,52 +41,23 @@ class AppTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-
         // 🔹 Label del campo
         Text(
           label,
           style: AppTextStyles.label,
         ),
 
-        const SizedBox(height: AppSpacing.sm),
+        const SizedBox(height: 6),
 
-        // 🔹 Input
+        // 🔹 Input real
         TextField(
           controller: controller,
           maxLines: maxLines,
           obscureText: obscureText,
           keyboardType: keyboardType,
-
+          onChanged: onChanged,
           decoration: InputDecoration(
             hintText: hint,
-
-            filled: true,
-            fillColor: AppColors.surface,
-
-            contentPadding: const EdgeInsets.symmetric(
-              horizontal: AppSpacing.md,
-              vertical: AppSpacing.md,
-            ),
-
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide.none,
-            ),
-
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(
-                color: AppColors.textSecondary.withValues(alpha: 0.2),
-              ),
-            ),
-
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(
-                color: AppColors.primary,
-                width: 1.5,
-              ),
-            ),
           ),
         ),
       ],

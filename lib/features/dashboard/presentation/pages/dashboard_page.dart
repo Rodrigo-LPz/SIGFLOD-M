@@ -4,10 +4,27 @@ import '../../../../config/theme/app_text_styles.dart';
 import '../../../../core/routes/app_routes.dart';
 import '../../../../shared/widgets/app_button.dart';
 import '../../../../shared/widgets/app_card.dart';
+import '../../../activities/data/repositories/activity_memory_repository.dart';
+import '../../../activities/domain/models/activity_model.dart';
+import '../../../activities/presentation/pages/create_activity_page.dart';
+import '../../../patients/data/repositories/patient_memory_repository.dart';
+import '../../../patients/presentation/pages/patient_detail_page.dart';
+import '../../../templates/data/repositories/template_memory_repository.dart';
+import '../../../templates/domain/models/template_model.dart';
 
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
+
+  // 🔹 Repositorio compartido de actividades
+  static final ActivityMemoryRepository _activityRepository =
+      ActivityMemoryRepository.instance;
+
+  // 🔹 Repositorio compartido de pacientes
+  static final PatientMemoryRepository _patientRepository = PatientMemoryRepository.instance;
+
+  // 🔹 Repositorio compartido de plantillas
+  static final TemplateMemoryRepository _templateRepository = TemplateMemoryRepository.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -80,24 +97,36 @@ class DashboardPage extends StatelessWidget {
 
             const SizedBox(height: AppSpacing.md),
 
-            _ActivityCard(
-              title: 'Juego de rimas',
-              subtitle: 'Rimas, palabras y sílabas.',
-            ),
+            ValueListenableBuilder<List<TemplateModel>>(
+              valueListenable: _templateRepository.templates,
+              builder: (context, templates, _) {
+                final recommendedTemplates = templates.take(4).toList();
 
-            _ActivityCard(
-              title: 'Memorización',
-              subtitle: 'Agilidad mental. Recuerda.',
-            ),
+                if (recommendedTemplates.isEmpty) {
+                  return const Text(
+                    'Todavía no hay plantillas disponibles.',
+                    style: AppTextStyles.bodySecondary,
+                  );
+                }
 
-            _ActivityCard(
-              title: 'Pronunciación',
-              subtitle: 'Fonética. Control al hablar.',
-            ),
-
-            _ActivityCard(
-              title: 'Secuencias',
-              subtitle: 'Ordena imágenes y palabras.',
+                return Column(
+                  children: recommendedTemplates.map((template) {
+                    return _ActivityCard(
+                      template: template,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CreateActivityPage(
+                              initialTemplate: template,
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  }).toList(),
+                );
+              },
             ),
 
             const SizedBox(height: AppSpacing.xl),
@@ -109,40 +138,76 @@ class DashboardPage extends StatelessWidget {
 
             const SizedBox(height: AppSpacing.sm),
 
-            _ProgressTile(
-              name: 'Matías Ariel',
-              detail: 'Auditado hace 2 días',
-            ),
+            ValueListenableBuilder<List<ActivityModel>>(
+              valueListenable: _activityRepository.activities,
+              builder: (context, activities, _) {
+                final recentActivities = _activityRepository
+                    .getRecentActivities()
+                    .take(5)
+                    .toList();
 
-            _ProgressTile(
-              name: 'Aday Perdomo',
-              detail: 'Auditado hace 3 días',
+                if (recentActivities.isEmpty) {
+                  return const Text(
+                    'Todavía no hay actividades registradas.',
+                    style: AppTextStyles.bodySecondary,
+                  );
+                }
+
+                return Column(
+                  children: recentActivities.map((activity) {
+                    final patient = _patientRepository.getById(activity.patientId);
+
+                    return _ProgressTile(
+                      name: activity.patientName,
+                      detail: '${activity.templateName} · ${_formatDate(activity.createdAt)}',
+                      onTap: patient == null
+                          ? null
+                          : () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PatientDetailPage(
+                                    patient: patient,
+                                  ),
+                                ),
+                              );
+                            },
+                    );
+                  }).toList(),
+                );
+              },
             ),
           ],
         ),
       ),
     );
   }
+
+  static String _formatDate(DateTime dateTime) {
+    final day = dateTime.day.toString().padLeft(2, '0');
+    final month = dateTime.month.toString().padLeft(2, '0');
+    final year = dateTime.year.toString();
+
+    final hour = dateTime.hour.toString().padLeft(2, '0');
+    final minute = dateTime.minute.toString().padLeft(2, '0');
+
+    return '$day/$month/$year - $hour:$minute';
+  }
 }
 
 class _ActivityCard extends StatelessWidget {
-  final String title;
-  final String subtitle;
+  final TemplateModel template;
+  final VoidCallback onTap;
 
   const _ActivityCard({
-    required this.title,
-    required this.subtitle,
+    required this.template,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(
-          context,
-          AppRoutes.createActivity,
-        );
-      },
+      onTap: onTap,
       child: AppCard(
         margin: const EdgeInsets.only(bottom: AppSpacing.md),
         padding: const EdgeInsets.all(AppSpacing.md),
@@ -155,12 +220,12 @@ class _ActivityCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title,
+                    template.name,
                     style: AppTextStyles.body,
                   ),
                   const SizedBox(height: AppSpacing.xs),
                   Text(
-                    subtitle,
+                    template.objective,
                     style: AppTextStyles.bodySecondary,
                   ),
                 ],
@@ -176,10 +241,12 @@ class _ActivityCard extends StatelessWidget {
 class _ProgressTile extends StatelessWidget {
   final String name;
   final String detail;
+  final VoidCallback? onTap;
 
   const _ProgressTile({
     required this.name,
     required this.detail,
+    this.onTap,
   });
 
   @override
@@ -197,12 +264,7 @@ class _ProgressTile extends StatelessWidget {
         detail,
         style: AppTextStyles.bodySecondary,
       ),
-      onTap: () {
-        Navigator.pushNamed(
-          context,
-          AppRoutes.patientDetail,
-        );
-      },
+      onTap: onTap,
     );
   }
 }

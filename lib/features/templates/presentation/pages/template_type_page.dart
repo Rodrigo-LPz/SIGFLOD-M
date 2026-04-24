@@ -4,7 +4,6 @@ import '../../../../config/theme/app_text_styles.dart';
 import '../../../../core/routes/app_routes.dart';
 import '../../../../shared/widgets/app_card.dart';
 
-
 class TemplateTypePage extends StatelessWidget {
   const TemplateTypePage({super.key});
 
@@ -50,6 +49,7 @@ class _TypeCard extends StatelessWidget {
         Navigator.pushNamed(
           context,
           AppRoutes.templateConfig,
+          arguments: title,
         );
       },
       child: AppCard(

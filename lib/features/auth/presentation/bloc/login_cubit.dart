@@ -3,32 +3,79 @@ import 'package:equatable/equatable.dart';
 
 part 'login_state.dart';
 
+
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(const LoginState());
 
-  void emailChanged(String value) {
-    emit(state.copyWith(email: value));
+  void usernameChanged(String value) {
+    emit(
+      state.copyWith(
+        username: value,
+        clearError: true,
+      ),
+    );
   }
 
   void passwordChanged(String value) {
-    emit(state.copyWith(password: value));
+    emit(
+      state.copyWith(
+        password: value,
+        clearError: true,
+      ),
+    );
   }
 
   void toggleTerms(bool value) {
-    emit(state.copyWith(acceptedTerms: value));
+    emit(
+      state.copyWith(
+        acceptedTerms: value,
+        clearError: true,
+      ),
+    );
   }
 
-  void submit() {
-    if (!state.acceptedTerms) {
-      emit(state.copyWith(error: 'Debe aceptar los términos'));
+  Future<void> submit() async {
+    if (!state.isUsernameValid) {
+      emit(
+        state.copyWith(
+          error: 'Debe introducir un nombre de usuario válido.',
+        ),
+      );
       return;
     }
 
-    // Aquí luego irá la lógica real
-    emit(state.copyWith(isSubmitting: true));
+    if (!state.isPasswordValid) {
+      emit(
+        state.copyWith(
+          error: 'La contraseña debe tener al menos 4 caracteres.',
+        ),
+      );
+      return;
+    }
 
-    Future.delayed(const Duration(seconds: 1), () {
-      emit(state.copyWith(isSubmitting: false));
-    });
+    if (!state.acceptedTerms) {
+      emit(
+        state.copyWith(
+          error: 'Debe aceptar los términos y la política de privacidad.',
+        ),
+      );
+      return;
+    }
+
+    emit(
+      state.copyWith(
+        isSubmitting: true,
+        clearError: true,
+      ),
+    );
+
+    await Future.delayed(const Duration(seconds: 1));
+
+    emit(
+      state.copyWith(
+        isSubmitting: false,
+        clearError: true,
+      ),
+    );
   }
 }
