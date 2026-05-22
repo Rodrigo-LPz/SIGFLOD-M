@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "sigflod-m-d35b4"
+  },
+  "targets": {
+    "sigflod-m-d35b4": {
+      "hosting": {
+        "app": [
+          "app-sigflod-m"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

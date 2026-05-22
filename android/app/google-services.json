@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "837737308428",
+    "project_id": "sigflod-m-d35b4",
+    "storage_bucket": "sigflod-m-d35b4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:837737308428:android:1f51a0f7cb2d2fdeb1e929",
+        "android_client_info": {
+          "package_name": "com.example.sigflod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "837737308428-1vblepafne8mvptbfmusd6vesvfr7q38.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAY-qczmOve5OfG7rQSeaE2TgKQyILT1r8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "837737308428-1vblepafne8mvptbfmusd6vesvfr7q38.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "837737308428-1737i7oavhip9qak83i90ebcn6k33j0l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sigflod"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

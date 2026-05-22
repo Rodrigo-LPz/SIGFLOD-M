@@ -1,0 +1,75 @@
+// =================================================================
+// ACTUALIZACIÓN DE HERRAMIENTAS BASE
+// =================================================================
+  git --version                 // Verifica la versión actual de Git instalada en el sistema.
+  git update-git-for-windows -y // Actualiza Git a la última versión disponible (específico para Windows).
+
+
+// =================================================================
+// GESTIÓN Y ACTUALIZACIÓN DEL SDK DE FLUTTER
+// =================================================================
+  flutter --version         // Verifica la versión actual de Flutter instalada en el sistema.
+  flutter config --version  // Muestra la versión actual del SDK de Flutter y el canal activo (stable, beta, etc.).
+  flutter upgrade           // Descarga e instala la última versión de Flutter en el canal actual.
+
+  flutter channel           // Muestra los canales disponibles (stable, beta, master) y marca cuál estás usando.
+
+
+// =================================================================
+// DIAGNÓSTICO Y ENTORNO DE DESARROLLO
+// =================================================================
+  flutter doctor                    // Analiza el sistema y reporta dependencias faltantes o problemas de configuración.
+  flutter doctor --android-licenses // Revisa y acepta interactivamente todas las licencias del SDK de Android (requerido para compilar).
+
+
+// =================================================================
+// LIMPIEZA DE CACHÉ
+// =================================================================
+  flutter clean // Borra las carpetas /build, .dart_tool y cachés locales. Útil si hay errores raros de compilación.
+
+
+// =================================================================
+// GESTIÓN DE DEPENDENCIAS (pubspec.yaml)
+// =================================================================
+  flutter pub get                       // Descarga e instala los paquetes y dependencias listados en el "pubspec.yaml".
+  flutter pub outdated                  // Analiza las dependencias actuales para ver cuáles tienen versiones más recientes disponibles.
+
+  flutter pub upgrade                   // Actualiza los paquetes a las versiones más altas permitidas por las restricciones del "pubspec.yaml".
+  flutter pub upgrade --major-versions  // Fuerza la actualización de los paquetes a sus últimas versiones mayores (puede romper compatibilidad).
+  flutter pub add <paquete>             // Agrega un paquete nuevo al "pubspec.yaml" automáticamente sin tener que buscar la versión en "pub.dev".
+
+
+// =================================================================
+// GENERACIÓN DE CÓDIGO (NUEVO - ¡Esencial para proyectos medianos/grandes!)
+// =================================================================
+  dart run build_runner build                               // Ejecuta una sola vez la generación de código (para Freezed, Riverpod, Injectable, etc.).
+  dart run build_runner watch                               // Se queda escuchando cambios y regenera el código automáticamente al guardar archivos.
+  dart run build_runner build --delete-conflicting-outputs  // Fuerza la generación borrando los archivos conflictivos previos.
+
+
+// =================================================================
+// ANÁLISIS DE CÓDIGO Y BUENAS PRÁCTICAS
+// =================================================================
+  flutter analyze           // Ejecuta el linter para buscar errores sintácticos, advertencias y malas prácticas en el código Dart.
+  flutter analyze --no-pub  // Realiza el mismo análisis de código anterior, pero salta la descarga previa de dependencias.
+  dart format .             // Formatea automáticamente todo el código del proyecto siguiendo las reglas oficiales de Dart.
+
+
+// =================================================================
+// EJECUCIÓN Y COMPILACIÓN DEL PROYECTO
+// =================================================================
+  flutter run             // Compila la aplicación y la arranca en el dispositivo o emulador seleccionado.
+  flutter run -d all      // Ejecuta la aplicación en TODOS los dispositivos y emuladores conectados al mismo tiempo.
+  flutter build apk       // Compila la aplicación en modo Release para generar el archivo instalable de Android.
+  flutter build appbundle // Compila el formato .aab requerido obligatoriamente para subir la app a la Google Play Store.
+
+
+// =================================================================
+// CONTROL DE DISPOSITIVOS
+// =================================================================
+  flutter devices // Muestra la lista de todos los emuladores, simuladores y dispositivos físicos conectados.
+
+// =================================================================
+// LOCALIZACIÓN / TRADUCCIONES (l10n)
+// =================================================================
+  flutter gen-l10n  // Genera automáticamente el código Dart a partir de los archivos de traducción .arb (como tus app_en.arb).
