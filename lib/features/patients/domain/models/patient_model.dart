@@ -7,8 +7,8 @@ class PatientModel {
   final String diagnosis;
   final String observations;
 
-  // Almacena la foto de perfil del paciente codificada como texto Base64.
-  final String? photoBase64;
+  // Almacena la URL pública de la foto de perfil del paciente en Firebase Storage.
+  final String? photoUrl;
 
   const PatientModel({
     required this.id,
@@ -17,13 +17,13 @@ class PatientModel {
     required this.birthDate,
     required this.diagnosis,
     required this.observations,
-    this.photoBase64,
+    this.photoUrl,
   });
 
   String get fullName => '$name $surname'.trim();
 
   // Determina si el paciente tiene una foto de perfil asignada.
-  bool get hasPhoto => photoBase64 != null && photoBase64!.isNotEmpty;
+  bool get hasPhoto => photoUrl != null && photoUrl!.isNotEmpty;
 
   PatientModel copyWith({
     String? id,
@@ -32,7 +32,7 @@ class PatientModel {
     String? birthDate,
     String? diagnosis,
     String? observations,
-    String? photoBase64,
+    String? photoUrl,
     bool clearPhoto = false,
   }) {
     return PatientModel(
@@ -42,7 +42,7 @@ class PatientModel {
       birthDate: birthDate ?? this.birthDate,
       diagnosis: diagnosis ?? this.diagnosis,
       observations: observations ?? this.observations,
-      photoBase64: clearPhoto ? null : (photoBase64 ?? this.photoBase64),
+      photoUrl: clearPhoto ? null : (photoUrl ?? this.photoUrl),
     );
   }
 
@@ -54,7 +54,7 @@ class PatientModel {
       'birthDate': birthDate,
       'diagnosis': diagnosis,
       'observations': observations,
-      'photoBase64': photoBase64,
+      'photoUrl': photoUrl,
     };
   }
 
@@ -66,7 +66,7 @@ class PatientModel {
       birthDate: map['birthDate'] ?? '',
       diagnosis: map['diagnosis'] ?? '',
       observations: map['observations'] ?? '',
-      photoBase64: map['photoBase64'] as String?,
+      photoUrl: map['photoUrl'] as String?,
     );
   }
 }

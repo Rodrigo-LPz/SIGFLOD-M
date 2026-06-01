@@ -24,9 +24,10 @@ dependencies:
     sdk: flutter  # The Flutter SDK is required for building Flutter applications. It provides the core framework and tools needed to develop and run Flutter apps.
 
   # --- FIREBASE ---
-  firebase_core: ^4.7.0  # Core Firebase SDK for Flutter, required for initializing Firebase in the app.
-  firebase_auth: ^6.4.0   # Firebase Authentication SDK for Flutter, used for handling user authentication (sign-up, sign-in, etc.) in the app.
-  cloud_firestore: ^6.3.0 # Cloud Firestore SDK for Flutter, used for interacting with the Firestore database (CRUD operations, real-time updates, etc.) in the app.
+  firebase_core: ^4.7.0     # Core Firebase SDK for Flutter, required for initializing Firebase in the app.
+  firebase_auth: ^6.4.0     # Firebase Authentication SDK for Flutter, used for handling user authentication (sign-up, sign-in, etc.) in the app.
+  cloud_firestore: ^6.3.0   # Cloud Firestore SDK for Flutter, used for interacting with the Firestore database (CRUD operations, real-time updates, etc.) in the app.
+  firebase_storage: ^13.4.1 # Firebase Storage SDK for Flutter, used for uploading and downloading files (e.g., patient profile pictures) to/from Firebase Storage.
 
   # --- PDF GENERATION ---
   pdf: ^3.11.1      # A powerful library for creating PDF documents in Flutter, used for generating the attendance reports in PDF format.

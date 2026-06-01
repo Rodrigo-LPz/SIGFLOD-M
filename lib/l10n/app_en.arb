@@ -251,5 +251,8 @@
   "confirmRemovePhotoMessage": "The patient's current photo will be removed. You can add another whenever you want.",
   "photoUpdated": "Photo updated successfully.",
   "photoRemoved": "Photo removed successfully.",
-  "errorPhotoTooLarge": "The photo is too large, try a different image."
+  "errorPhotoUploadFailed": "Failed to upload the photo. Please try again.",
+  "@errorPhotoUploadFailed": {
+    "description": "Message shown when the patient photo upload to Storage fails."
+  }
 }

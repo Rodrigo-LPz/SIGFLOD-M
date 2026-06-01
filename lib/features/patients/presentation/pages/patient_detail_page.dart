@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:printing/printing.dart';
 import 'package:flutter/services.dart';
+import 'package:printing/printing.dart';
 
 import '../../../../config/theme/app_spacing.dart';
 import '../../../../config/theme/app_text_styles.dart';
@@ -198,34 +198,38 @@ class _PatientDetailPageState extends State<PatientDetailPage> {
       return;
     }
 
-    final base64Image = choice == 'gallery'
+    final imageBytes = choice == 'gallery'
         ? await ImageService.instance.pickFromGallery()
         : await ImageService.instance.pickFromCamera();
 
-    if (base64Image == null) return;
+    if (imageBytes == null) return;
 
-    // Comprueba que la cadena resultante cabe en un documento de Firestore.
-    if (base64Image.length > 900000) {
+    try {
+      // Sube los bytes procesados al bucket de Storage y obtiene la URL pública resultante.
+      final photoUrl = await ImageService.instance.uploadPatientPhoto(
+        patientId: _patient.id,
+        imageBytes: imageBytes,
+      );
+
+      // Guarda la URL en el documento del paciente para asociarla a su perfil.
+      final updated = _patient.copyWith(photoUrl: photoUrl);
+      await PatientFirestoreRepository.instance.updatePatient(updated);
+
+      if (!mounted) return;
+
+      setState(() {
+        _patient = updated;
+      });
+
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(t.photoUpdated)));
+    } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text(t.errorPhotoTooLarge)));
-      return;
+      ).showSnackBar(SnackBar(content: Text(t.errorPhotoUploadFailed)));
     }
-
-    final updated = _patient.copyWith(photoBase64: base64Image);
-
-    await PatientFirestoreRepository.instance.updatePatient(updated);
-
-    if (!mounted) return;
-
-    setState(() {
-      _patient = updated;
-    });
-
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(SnackBar(content: Text(t.photoUpdated)));
   }
 
   // Pide confirmación al usuario y elimina la foto actual del paciente.
@@ -257,8 +261,11 @@ class _PatientDetailPageState extends State<PatientDetailPage> {
 
     if (confirmed != true) return;
 
-    final updated = _patient.copyWith(clearPhoto: true);
+    // Borra el archivo del bucket de Storage para no dejar residuos.
+    await ImageService.instance.deletePatientPhoto(_patient.id);
 
+    // Limpia la referencia de la URL en el documento del paciente.
+    final updated = _patient.copyWith(clearPhoto: true);
     await PatientFirestoreRepository.instance.updatePatient(updated);
 
     if (!mounted) return;
@@ -300,6 +307,11 @@ class _PatientDetailPageState extends State<PatientDetailPage> {
     );
 
     if (confirmed != true) return;
+
+    // Borra la foto del paciente del bucket para no dejar archivos huérfanos.
+    if (_patient.hasPhoto) {
+      await ImageService.instance.deletePatientPhoto(_patient.id);
+    }
 
     await PatientFirestoreRepository.instance.deletePatient(_patient.id);
 

@@ -1460,11 +1460,11 @@ abstract class AppLocalizations {
   /// **'Foto eliminada correctamente.'**
   String get photoRemoved;
 
-  /// No description provided for @errorPhotoTooLarge.
+  /// Mensaje mostrado cuando falla la subida de la foto del paciente a Storage.
   ///
   /// In es, this message translates to:
-  /// **'La foto es demasiado grande, prueba con otra imagen.'**
-  String get errorPhotoTooLarge;
+  /// **'Error al subir la foto. Inténtalo de nuevo.'**
+  String get errorPhotoUploadFailed;
 }
 
 class _AppLocalizationsDelegate

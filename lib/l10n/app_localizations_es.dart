@@ -730,6 +730,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get photoRemoved => 'Foto eliminada correctamente.';
 
   @override
-  String get errorPhotoTooLarge =>
-      'La foto es demasiado grande, prueba con otra imagen.';
+  String get errorPhotoUploadFailed =>
+      'Error al subir la foto. Inténtalo de nuevo.';
 }

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'app_colors.dart';
 
-
 // 🔤 Sistema tipográfico centralizado
 class AppTextStyles {
-
   // 🔝 Títulos grandes (pantallas)
   static const TextStyle headline = TextStyle(
     fontSize: 28,

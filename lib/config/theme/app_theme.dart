@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'app_colors.dart';
 import 'app_text_styles.dart';
 
-
 // Clase donde centralizamos todo el estilo global de la app
 class AppTheme {
   // Método que devuelve el ThemeData principal
@@ -13,13 +12,13 @@ class AppTheme {
 
       // 🎨 Definimos la paleta de colores base
       colorScheme: const ColorScheme(
-
         brightness: Brightness.light,
 
-        primary: AppColors.primary,        // Color principal (botones, elementos activos)
-        onPrimary: Colors.white,           // Color del texto sobre primary
+        primary:
+            AppColors.primary, // Color principal (botones, elementos activos)
+        onPrimary: Colors.white, // Color del texto sobre primary
 
-        secondary: AppColors.secondary,      // Color secundario
+        secondary: AppColors.secondary, // Color secundario
         onSecondary: Colors.white,
 
         error: Colors.red,
@@ -44,7 +43,6 @@ class AppTheme {
       // 🔘 Estilo global de botones
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-
           backgroundColor: AppColors.primary,
 
           foregroundColor: Colors.white,
@@ -53,10 +51,7 @@ class AppTheme {
             borderRadius: BorderRadius.circular(12),
           ),
 
-          padding: const EdgeInsets.symmetric(
-            vertical: 14,
-            horizontal: 20,
-          ),
+          padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
         ),
       ),
 

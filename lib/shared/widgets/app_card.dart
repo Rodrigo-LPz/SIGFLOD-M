@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../config/theme/app_colors.dart';
 
-
 // 🧱 Card reutilizable de la app
 class AppCard extends StatelessWidget {
-
   final Widget child;
   final EdgeInsets padding;
   final EdgeInsets margin;

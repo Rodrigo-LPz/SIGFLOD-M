@@ -64,7 +64,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '837737308428',
     projectId: 'sigflod-m-d35b4',
     storageBucket: 'sigflod-m-d35b4.firebasestorage.app',
-    iosClientId: '837737308428-1737i7oavhip9qak83i90ebcn6k33j0l.apps.googleusercontent.com',
+    iosClientId:
+        '837737308428-1737i7oavhip9qak83i90ebcn6k33j0l.apps.googleusercontent.com',
     iosBundleId: 'com.example.sigflod',
   );
 
@@ -74,7 +75,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '837737308428',
     projectId: 'sigflod-m-d35b4',
     storageBucket: 'sigflod-m-d35b4.firebasestorage.app',
-    iosClientId: '837737308428-1737i7oavhip9qak83i90ebcn6k33j0l.apps.googleusercontent.com',
+    iosClientId:
+        '837737308428-1737i7oavhip9qak83i90ebcn6k33j0l.apps.googleusercontent.com',
     iosBundleId: 'com.example.sigflod',
   );
 
@@ -87,5 +89,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'sigflod-m-d35b4.firebasestorage.app',
     measurementId: 'G-L6CWZE1S51',
   );
-
 }
