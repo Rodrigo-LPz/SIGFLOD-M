@@ -254,5 +254,28 @@
   "errorPhotoUploadFailed": "Error al subir la foto. Inténtalo de nuevo.",
   "@errorPhotoUploadFailed": {
     "description": "Mensaje mostrado cuando falla la subida de la foto del paciente a Storage."
-  }
+  },
+
+  "phonemeTypeSimple": "Simple",
+  "phonemeTypeMultiple": "Múltiple",
+  "phonemeTypeBlend": "Sinfón",
+
+  "phonemePositionInitial": "Inicial",
+  "phonemePositionMiddle": "Media",
+  "phonemePositionFinal": "Final",
+  "phonemePositionBlend": "Trabada",
+
+  "motorGroupLips": "Labios",
+  "motorGroupTongue": "Lengua",
+  "motorGroupCheeks": "Mejillas",
+  "motorGroupJaw": "Mandíbula",
+  "motorGroupPalate": "Paladar",
+  "motorGroupBreath": "Soplo",
+
+  "comprehensionModalityReading": "Lectora",
+  "comprehensionModalityListening": "Auditiva",
+
+  "vocabularyModeNaming": "Denominación",
+  "vocabularyModeRiddle": "Adivinanza",
+  "vocabularyModeCategorization": "Categorización"
 }

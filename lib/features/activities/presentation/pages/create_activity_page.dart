@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../config/theme/app_spacing.dart';
 import '../../../../config/theme/app_text_styles.dart';
 import '../../../../core/routes/app_routes.dart';
@@ -49,10 +50,14 @@ class _CreateActivityPageState extends State<CreateActivityPage> {
   // Almacena la hora de fin de la cita seleccionada por el logopeda.
   TimeOfDay? _endTime;
 
-  // Almacena los ajustes configurables de la actividad.
-  int _repetitions = 3;
-  int _timeLimitMinutes = 5;
-  bool _guidedMode = true;
+  // TODO: MIGRACION_PLANTILLAS — Los ajustes de la actividad (repeticiones,
+  // tiempo límite, modo guiado) están temporalmente fijados a valores por
+  // defecto mientras se completa la migración al nuevo sistema de plantillas.
+  // En el punto 5 del plan, cada tipo de plantilla tendrá su propio flujo de
+  // registro de actividad con los ajustes específicos que correspondan.
+  static const int _defaultRepetitions = 3;
+  static const int _defaultTimeLimitMinutes = 5;
+  static const bool _defaultGuidedMode = true;
 
   // Almacena la referencia al repositorio Firestore de actividades.
   final ActivityFirestoreRepository _activityRepository =
@@ -65,13 +70,6 @@ class _CreateActivityPageState extends State<CreateActivityPage> {
     // Inicializa el paciente y la plantilla con los valores recibidos si existen.
     _selectedPatient = widget.initialPatient;
     _selectedTemplate = widget.initialTemplate;
-
-    // Sincroniza los ajustes iniciales con la plantilla recibida si existe.
-    if (_selectedTemplate != null) {
-      _repetitions = _selectedTemplate!.repetitions;
-      _timeLimitMinutes = _selectedTemplate!.timeLimitMinutes;
-      _guidedMode = _selectedTemplate!.guidedMode;
-    }
   }
 
   // Formatea una hora del día al formato HH:mm de dos dígitos.
@@ -105,7 +103,7 @@ class _CreateActivityPageState extends State<CreateActivityPage> {
     }
   }
 
-  // Abre el selector de plantillas y actualiza la plantilla y ajustes seleccionados.
+  // Abre el selector de plantillas y actualiza la plantilla seleccionada.
   Future<void> _selectTemplate() async {
     final result = await Navigator.push<TemplateModel>(
       context,
@@ -117,9 +115,6 @@ class _CreateActivityPageState extends State<CreateActivityPage> {
     if (result != null) {
       setState(() {
         _selectedTemplate = result;
-        _repetitions = result.repetitions;
-        _timeLimitMinutes = result.timeLimitMinutes;
-        _guidedMode = result.guidedMode;
       });
     }
   }
@@ -226,9 +221,9 @@ class _CreateActivityPageState extends State<CreateActivityPage> {
       patientName: _selectedPatient!.fullName,
       templateId: _attended ? _selectedTemplate!.id : '',
       templateName: _attended ? _selectedTemplate!.name : '',
-      repetitions: _attended ? _repetitions : 0,
-      timeLimitMinutes: _attended ? _timeLimitMinutes : 0,
-      guidedMode: _attended ? _guidedMode : false,
+      repetitions: _attended ? _defaultRepetitions : 0,
+      timeLimitMinutes: _attended ? _defaultTimeLimitMinutes : 0,
+      guidedMode: _attended ? _defaultGuidedMode : false,
       createdAt: DateTime.now(),
       attended: _attended,
       appointmentDate: _appointmentDate!,
@@ -257,17 +252,13 @@ class _CreateActivityPageState extends State<CreateActivityPage> {
       return;
     }
 
-    // Si asistió, abre la previsualización de la actividad con la plantilla ajustada.
-    final previewTemplate = _selectedTemplate!.copyWith(
-      repetitions: _repetitions,
-      timeLimitMinutes: _timeLimitMinutes,
-      guidedMode: _guidedMode,
-    );
-
+    // TODO: MIGRACION_PLANTILLAS — La previsualización de actividad pasará a
+    // ser específica de cada tipo de plantilla en el punto 5 del plan. Por
+    // ahora se delega a la pantalla placeholder de previsualización.
     Navigator.pushNamed(
       context,
       AppRoutes.templatePreview,
-      arguments: {'template': previewTemplate, 'previewMode': 'activity'},
+      arguments: {'template': _selectedTemplate, 'previewMode': 'activity'},
     );
   }
 
@@ -365,7 +356,7 @@ class _CreateActivityPageState extends State<CreateActivityPage> {
 
             const SizedBox(height: AppSpacing.xl),
 
-            // Sección de plantilla y configuración solo si el paciente asistió.
+            // Sección de plantilla solo si el paciente asistió.
             IgnorePointer(
               ignoring: !_attended,
               child: Opacity(
@@ -382,46 +373,6 @@ class _CreateActivityPageState extends State<CreateActivityPage> {
                           _selectedTemplate?.objective ??
                           t.noneSelectedTemplate,
                       onTap: _selectTemplate,
-                    ),
-
-                    const SizedBox(height: AppSpacing.xl),
-
-                    _SectionTitle(title: t.configurationSection),
-                    const SizedBox(height: AppSpacing.sm),
-
-                    _SettingTile(
-                      title: t.repetitionsLabel,
-                      trailing: _CounterWidget(
-                        value: _repetitions,
-                        onDecrease: () {
-                          if (_repetitions > 1) {
-                            setState(() => _repetitions--);
-                          }
-                        },
-                        onIncrease: () => setState(() => _repetitions++),
-                      ),
-                    ),
-                    const SizedBox(height: AppSpacing.sm),
-                    _SettingTile(
-                      title: t.timeLabel,
-                      trailing: _CounterWidget(
-                        value: _timeLimitMinutes,
-                        onDecrease: () {
-                          if (_timeLimitMinutes > 1) {
-                            setState(() => _timeLimitMinutes--);
-                          }
-                        },
-                        onIncrease: () => setState(() => _timeLimitMinutes++),
-                      ),
-                    ),
-                    const SizedBox(height: AppSpacing.sm),
-                    _SettingTile(
-                      title: t.guidedModeLabel,
-                      trailing: Switch(
-                        value: _guidedMode,
-                        onChanged: (value) =>
-                            setState(() => _guidedMode = value),
-                      ),
                     ),
                   ],
                 ),
@@ -476,47 +427,6 @@ class _SelectionCard extends StatelessWidget {
         trailing: const Icon(Icons.arrow_forward_ios, size: 16),
         onTap: onTap,
       ),
-    );
-  }
-}
-
-class _SettingTile extends StatelessWidget {
-  final String title;
-  final Widget trailing;
-
-  const _SettingTile({required this.title, required this.trailing});
-
-  @override
-  Widget build(BuildContext context) {
-    return AppCard(
-      child: ListTile(
-        title: Text(title, style: AppTextStyles.body),
-        trailing: trailing,
-      ),
-    );
-  }
-}
-
-class _CounterWidget extends StatelessWidget {
-  final int value;
-  final VoidCallback onDecrease;
-  final VoidCallback onIncrease;
-
-  const _CounterWidget({
-    required this.value,
-    required this.onDecrease,
-    required this.onIncrease,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        IconButton(onPressed: onDecrease, icon: const Icon(Icons.remove)),
-        Text('$value', style: AppTextStyles.body),
-        IconButton(onPressed: onIncrease, icon: const Icon(Icons.add)),
-      ],
     );
   }
 }

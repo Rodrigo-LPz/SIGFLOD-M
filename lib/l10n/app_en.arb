@@ -254,5 +254,28 @@
   "errorPhotoUploadFailed": "Failed to upload the photo. Please try again.",
   "@errorPhotoUploadFailed": {
     "description": "Message shown when the patient photo upload to Storage fails."
-  }
+  },
+
+  "phonemeTypeSimple": "Simple",
+  "phonemeTypeMultiple": "Multiple",
+  "phonemeTypeBlend": "Blend",
+
+  "phonemePositionInitial": "Initial",
+  "phonemePositionMiddle": "Middle",
+  "phonemePositionFinal": "Final",
+  "phonemePositionBlend": "Blend",
+
+  "motorGroupLips": "Lips",
+  "motorGroupTongue": "Tongue",
+  "motorGroupCheeks": "Cheeks",
+  "motorGroupJaw": "Jaw",
+  "motorGroupPalate": "Palate",
+  "motorGroupBreath": "Breath",
+
+  "comprehensionModalityReading": "Reading",
+  "comprehensionModalityListening": "Listening",
+
+  "vocabularyModeNaming": "Naming",
+  "vocabularyModeRiddle": "Riddle",
+  "vocabularyModeCategorization": "Categorization"
 }

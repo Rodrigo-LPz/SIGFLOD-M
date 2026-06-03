@@ -730,4 +730,58 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get errorPhotoUploadFailed =>
       'Failed to upload the photo. Please try again.';
+
+  @override
+  String get phonemeTypeSimple => 'Simple';
+
+  @override
+  String get phonemeTypeMultiple => 'Multiple';
+
+  @override
+  String get phonemeTypeBlend => 'Blend';
+
+  @override
+  String get phonemePositionInitial => 'Initial';
+
+  @override
+  String get phonemePositionMiddle => 'Middle';
+
+  @override
+  String get phonemePositionFinal => 'Final';
+
+  @override
+  String get phonemePositionBlend => 'Blend';
+
+  @override
+  String get motorGroupLips => 'Lips';
+
+  @override
+  String get motorGroupTongue => 'Tongue';
+
+  @override
+  String get motorGroupCheeks => 'Cheeks';
+
+  @override
+  String get motorGroupJaw => 'Jaw';
+
+  @override
+  String get motorGroupPalate => 'Palate';
+
+  @override
+  String get motorGroupBreath => 'Breath';
+
+  @override
+  String get comprehensionModalityReading => 'Reading';
+
+  @override
+  String get comprehensionModalityListening => 'Listening';
+
+  @override
+  String get vocabularyModeNaming => 'Naming';
+
+  @override
+  String get vocabularyModeRiddle => 'Riddle';
+
+  @override
+  String get vocabularyModeCategorization => 'Categorization';
 }

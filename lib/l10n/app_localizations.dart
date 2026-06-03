@@ -1465,6 +1465,114 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Error al subir la foto. Inténtalo de nuevo.'**
   String get errorPhotoUploadFailed;
+
+  /// No description provided for @phonemeTypeSimple.
+  ///
+  /// In es, this message translates to:
+  /// **'Simple'**
+  String get phonemeTypeSimple;
+
+  /// No description provided for @phonemeTypeMultiple.
+  ///
+  /// In es, this message translates to:
+  /// **'Múltiple'**
+  String get phonemeTypeMultiple;
+
+  /// No description provided for @phonemeTypeBlend.
+  ///
+  /// In es, this message translates to:
+  /// **'Sinfón'**
+  String get phonemeTypeBlend;
+
+  /// No description provided for @phonemePositionInitial.
+  ///
+  /// In es, this message translates to:
+  /// **'Inicial'**
+  String get phonemePositionInitial;
+
+  /// No description provided for @phonemePositionMiddle.
+  ///
+  /// In es, this message translates to:
+  /// **'Media'**
+  String get phonemePositionMiddle;
+
+  /// No description provided for @phonemePositionFinal.
+  ///
+  /// In es, this message translates to:
+  /// **'Final'**
+  String get phonemePositionFinal;
+
+  /// No description provided for @phonemePositionBlend.
+  ///
+  /// In es, this message translates to:
+  /// **'Trabada'**
+  String get phonemePositionBlend;
+
+  /// No description provided for @motorGroupLips.
+  ///
+  /// In es, this message translates to:
+  /// **'Labios'**
+  String get motorGroupLips;
+
+  /// No description provided for @motorGroupTongue.
+  ///
+  /// In es, this message translates to:
+  /// **'Lengua'**
+  String get motorGroupTongue;
+
+  /// No description provided for @motorGroupCheeks.
+  ///
+  /// In es, this message translates to:
+  /// **'Mejillas'**
+  String get motorGroupCheeks;
+
+  /// No description provided for @motorGroupJaw.
+  ///
+  /// In es, this message translates to:
+  /// **'Mandíbula'**
+  String get motorGroupJaw;
+
+  /// No description provided for @motorGroupPalate.
+  ///
+  /// In es, this message translates to:
+  /// **'Paladar'**
+  String get motorGroupPalate;
+
+  /// No description provided for @motorGroupBreath.
+  ///
+  /// In es, this message translates to:
+  /// **'Soplo'**
+  String get motorGroupBreath;
+
+  /// No description provided for @comprehensionModalityReading.
+  ///
+  /// In es, this message translates to:
+  /// **'Lectora'**
+  String get comprehensionModalityReading;
+
+  /// No description provided for @comprehensionModalityListening.
+  ///
+  /// In es, this message translates to:
+  /// **'Auditiva'**
+  String get comprehensionModalityListening;
+
+  /// No description provided for @vocabularyModeNaming.
+  ///
+  /// In es, this message translates to:
+  /// **'Denominación'**
+  String get vocabularyModeNaming;
+
+  /// No description provided for @vocabularyModeRiddle.
+  ///
+  /// In es, this message translates to:
+  /// **'Adivinanza'**
+  String get vocabularyModeRiddle;
+
+  /// No description provided for @vocabularyModeCategorization.
+  ///
+  /// In es, this message translates to:
+  /// **'Categorización'**
+  String get vocabularyModeCategorization;
 }
 
 class _AppLocalizationsDelegate
