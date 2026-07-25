@@ -786,4 +786,180 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get vocabularyModeCategorization => 'Categorización';
+
+  @override
+  String get customItemEditorTitleNew => 'Nuevo elemento';
+
+  @override
+  String get customItemEditorTitleEdit => 'Editar elemento';
+
+  @override
+  String get customItemTextLabel => 'Texto del elemento';
+
+  @override
+  String get customItemTextHint => 'Introduce el texto que verá el paciente';
+
+  @override
+  String get customItemSectionImage => 'Imagen';
+
+  @override
+  String get customItemSectionAudio => 'Audio';
+
+  @override
+  String get customItemSectionVideo => 'Vídeo';
+
+  @override
+  String get customItemAddImage => 'Añadir imagen';
+
+  @override
+  String get customItemChangeImage => 'Cambiar imagen';
+
+  @override
+  String get customItemRemoveImage => 'Eliminar imagen';
+
+  @override
+  String get customItemAddAudio => 'Añadir audio';
+
+  @override
+  String get customItemChangeAudio => 'Cambiar audio';
+
+  @override
+  String get customItemRemoveAudio => 'Eliminar audio';
+
+  @override
+  String get customItemAddVideo => 'Añadir vídeo';
+
+  @override
+  String get customItemChangeVideo => 'Cambiar vídeo';
+
+  @override
+  String get customItemRemoveVideo => 'Eliminar vídeo';
+
+  @override
+  String get customItemSaveButton => 'Guardar elemento';
+
+  @override
+  String get customItemImagePreview => 'Imagen seleccionada';
+
+  @override
+  String get customItemAudioPreview => 'Audio seleccionado';
+
+  @override
+  String get customItemVideoPreview => 'Vídeo seleccionado';
+
+  @override
+  String get customItemErrorEmptyText =>
+      'El texto del elemento no puede estar vacío.';
+
+  @override
+  String get customItemConfirmRemoveImageTitle => 'Eliminar imagen';
+
+  @override
+  String get customItemConfirmRemoveImageMessage =>
+      '¿Seguro que quieres eliminar la imagen de este elemento?';
+
+  @override
+  String get customItemConfirmRemoveAudioTitle => 'Eliminar audio';
+
+  @override
+  String get customItemConfirmRemoveAudioMessage =>
+      '¿Seguro que quieres eliminar el audio de este elemento?';
+
+  @override
+  String get customItemConfirmRemoveVideoTitle => 'Eliminar vídeo';
+
+  @override
+  String get customItemConfirmRemoveVideoMessage =>
+      '¿Seguro que quieres eliminar el vídeo de este elemento?';
+
+  @override
+  String get customContentTitle => 'Contenido de la plantilla';
+
+  @override
+  String get customContentEmpty => 'Todavía no has añadido ningún elemento.';
+
+  @override
+  String get customContentEmptyHint => 'Pulsa el botón para crear el primero.';
+
+  @override
+  String get customContentAddItem => 'Añadir elemento';
+
+  @override
+  String customContentItemsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count elementos',
+      one: '1 elemento',
+      zero: 'Sin elementos',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get customContentReorderHint =>
+      'Mantén pulsado un elemento y arrástralo para reordenar la lista.';
+
+  @override
+  String get customContentConfirmRemoveItemTitle => 'Eliminar elemento';
+
+  @override
+  String get customContentConfirmRemoveItemMessage =>
+      '¿Seguro que quieres eliminar este elemento de la plantilla?';
+
+  @override
+  String get customContentErrorEmpty =>
+      'Debes añadir al menos un elemento antes de continuar.';
+
+  @override
+  String get customContentContinueButton => 'Continuar a los ajustes';
+
+  @override
+  String get customItemBadgeImage => 'Imagen';
+
+  @override
+  String get customItemBadgeAudio => 'Audio';
+
+  @override
+  String get customItemBadgeVideo => 'Vídeo';
+
+  @override
+  String get mediaViewerClose => 'Cerrar';
+
+  @override
+  String get mediaViewerImageTitle => 'Vista previa de imagen';
+
+  @override
+  String get mediaViewerAudioTitle => 'Reproductor de audio';
+
+  @override
+  String get mediaViewerVideoTitle => 'Reproductor de vídeo';
+
+  @override
+  String get mediaViewerImageHint =>
+      'Pellizca para ampliar o reducir la imagen.';
+
+  @override
+  String get mediaViewerAudioPlay => 'Reproducir';
+
+  @override
+  String get mediaViewerAudioPause => 'Pausar';
+
+  @override
+  String get mediaViewerErrorLoad =>
+      'No se pudo cargar el archivo. Inténtalo de nuevo.';
+
+  @override
+  String get mediaViewerSkipBack => 'Retroceder 10 segundos';
+
+  @override
+  String get mediaViewerSkipForward => 'Avanzar 10 segundos';
+
+  @override
+  String get mediaViewerSpeed => 'Velocidad de reproducción';
+
+  @override
+  String mediaViewerSpeedCurrent(String speed) {
+    return '${speed}x';
+  }
 }

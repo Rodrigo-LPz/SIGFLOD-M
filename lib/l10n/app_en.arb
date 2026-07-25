@@ -277,5 +277,75 @@
 
   "vocabularyModeNaming": "Naming",
   "vocabularyModeRiddle": "Riddle",
-  "vocabularyModeCategorization": "Categorization"
+  "vocabularyModeCategorization": "Categorization",
+
+  "customItemEditorTitleNew": "New item",
+  "customItemEditorTitleEdit": "Edit item",
+  "customItemTextLabel": "Item text",
+  "customItemTextHint": "Enter the text the patient will see",
+  "customItemSectionImage": "Image",
+  "customItemSectionAudio": "Audio",
+  "customItemSectionVideo": "Video",
+  "customItemAddImage": "Add image",
+  "customItemChangeImage": "Change image",
+  "customItemRemoveImage": "Remove image",
+  "customItemAddAudio": "Add audio",
+  "customItemChangeAudio": "Change audio",
+  "customItemRemoveAudio": "Remove audio",
+  "customItemAddVideo": "Add video",
+  "customItemChangeVideo": "Change video",
+  "customItemRemoveVideo": "Remove video",
+  "customItemSaveButton": "Save item",
+  "customItemImagePreview": "Selected image",
+  "customItemAudioPreview": "Selected audio",
+  "customItemVideoPreview": "Selected video",
+  "customItemErrorEmptyText": "The item text cannot be empty.",
+  "customItemConfirmRemoveImageTitle": "Remove image",
+  "customItemConfirmRemoveImageMessage": "Are you sure you want to remove the image from this item?",
+  "customItemConfirmRemoveAudioTitle": "Remove audio",
+  "customItemConfirmRemoveAudioMessage": "Are you sure you want to remove the audio from this item?",
+  "customItemConfirmRemoveVideoTitle": "Remove video",
+  "customItemConfirmRemoveVideoMessage": "Are you sure you want to remove the video from this item?",
+
+  "customContentTitle": "Template content",
+  "customContentEmpty": "You haven't added any items yet.",
+  "customContentEmptyHint": "Tap the button to create the first one.",
+  "customContentAddItem": "Add item",
+  "customContentItemsCount": "{count, plural, =0{No items} =1{1 item} other{{count} items}}",
+  "@customContentItemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customContentReorderHint": "Press and hold an item, then drag to reorder the list.",
+  "customContentConfirmRemoveItemTitle": "Remove item",
+  "customContentConfirmRemoveItemMessage": "Are you sure you want to remove this item from the template?",
+  "customContentErrorEmpty": "You must add at least one item before continuing.",
+  "customContentContinueButton": "Continue to settings",
+  "customItemBadgeImage": "Image",
+  "customItemBadgeAudio": "Audio",
+  "customItemBadgeVideo": "Video",
+
+  "mediaViewerClose": "Close",
+  "mediaViewerImageTitle": "Image preview",
+  "mediaViewerAudioTitle": "Audio player",
+  "mediaViewerVideoTitle": "Video player",
+  "mediaViewerImageHint": "Pinch to zoom in or out of the image.",
+  "mediaViewerAudioPlay": "Play",
+  "mediaViewerAudioPause": "Pause",
+  "mediaViewerErrorLoad": "Failed to load the file. Please try again.",
+
+  "mediaViewerSkipBack": "Skip back 10 seconds",
+  "mediaViewerSkipForward": "Skip forward 10 seconds",
+  "mediaViewerSpeed": "Playback speed",
+  "mediaViewerSpeedCurrent": "{speed}x",
+  "@mediaViewerSpeedCurrent": {
+    "placeholders": {
+      "speed": {
+        "type": "String"
+      }
+    }
+  }
 }

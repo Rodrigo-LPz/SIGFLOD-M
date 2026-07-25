@@ -11,6 +11,8 @@
 #include <firebase_auth/firebase_auth_plugin_c_api.h>
 #include <firebase_core/firebase_core_plugin_c_api.h>
 #include <firebase_storage/firebase_storage_plugin_c_api.h>
+#include <media_kit_libs_windows_video/media_kit_libs_windows_video_plugin_c_api.h>
+#include <media_kit_video/media_kit_video_plugin_c_api.h>
 #include <printing/printing_plugin.h>
 
 void RegisterPlugins(flutter::PluginRegistry* registry) {
@@ -24,6 +26,10 @@ void RegisterPlugins(flutter::PluginRegistry* registry) {
       registry->GetRegistrarForPlugin("FirebaseCorePluginCApi"));
   FirebaseStoragePluginCApiRegisterWithRegistrar(
       registry->GetRegistrarForPlugin("FirebaseStoragePluginCApi"));
+  MediaKitLibsWindowsVideoPluginCApiRegisterWithRegistrar(
+      registry->GetRegistrarForPlugin("MediaKitLibsWindowsVideoPluginCApi"));
+  MediaKitVideoPluginCApiRegisterWithRegistrar(
+      registry->GetRegistrarForPlugin("MediaKitVideoPluginCApi"));
   PrintingPluginRegisterWithRegistrar(
       registry->GetRegistrarForPlugin("PrintingPlugin"));
 }

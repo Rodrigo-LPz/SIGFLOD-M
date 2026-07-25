@@ -57,10 +57,11 @@ class _TypeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Navega al siguiente paso pasando el código del tipo seleccionado.
+        // Navega a la pantalla común de configuracion general del wizard
+        // pasando el codigo del tipo de plantilla seleccionado.
         Navigator.pushNamed(
           context,
-          AppRoutes.templateConfig,
+          AppRoutes.wizardGeneralConfig,
           arguments: type.code,
         );
       },

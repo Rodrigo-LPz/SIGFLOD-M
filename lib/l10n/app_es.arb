@@ -277,5 +277,75 @@
 
   "vocabularyModeNaming": "Denominación",
   "vocabularyModeRiddle": "Adivinanza",
-  "vocabularyModeCategorization": "Categorización"
+  "vocabularyModeCategorization": "Categorización",
+
+  "customItemEditorTitleNew": "Nuevo elemento",
+  "customItemEditorTitleEdit": "Editar elemento",
+  "customItemTextLabel": "Texto del elemento",
+  "customItemTextHint": "Introduce el texto que verá el paciente",
+  "customItemSectionImage": "Imagen",
+  "customItemSectionAudio": "Audio",
+  "customItemSectionVideo": "Vídeo",
+  "customItemAddImage": "Añadir imagen",
+  "customItemChangeImage": "Cambiar imagen",
+  "customItemRemoveImage": "Eliminar imagen",
+  "customItemAddAudio": "Añadir audio",
+  "customItemChangeAudio": "Cambiar audio",
+  "customItemRemoveAudio": "Eliminar audio",
+  "customItemAddVideo": "Añadir vídeo",
+  "customItemChangeVideo": "Cambiar vídeo",
+  "customItemRemoveVideo": "Eliminar vídeo",
+  "customItemSaveButton": "Guardar elemento",
+  "customItemImagePreview": "Imagen seleccionada",
+  "customItemAudioPreview": "Audio seleccionado",
+  "customItemVideoPreview": "Vídeo seleccionado",
+  "customItemErrorEmptyText": "El texto del elemento no puede estar vacío.",
+  "customItemConfirmRemoveImageTitle": "Eliminar imagen",
+  "customItemConfirmRemoveImageMessage": "¿Seguro que quieres eliminar la imagen de este elemento?",
+  "customItemConfirmRemoveAudioTitle": "Eliminar audio",
+  "customItemConfirmRemoveAudioMessage": "¿Seguro que quieres eliminar el audio de este elemento?",
+  "customItemConfirmRemoveVideoTitle": "Eliminar vídeo",
+  "customItemConfirmRemoveVideoMessage": "¿Seguro que quieres eliminar el vídeo de este elemento?",
+
+  "customContentTitle": "Contenido de la plantilla",
+  "customContentEmpty": "Todavía no has añadido ningún elemento.",
+  "customContentEmptyHint": "Pulsa el botón para crear el primero.",
+  "customContentAddItem": "Añadir elemento",
+  "customContentItemsCount": "{count, plural, =0{Sin elementos} =1{1 elemento} other{{count} elementos}}",
+  "@customContentItemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customContentReorderHint": "Mantén pulsado un elemento y arrástralo para reordenar la lista.",
+  "customContentConfirmRemoveItemTitle": "Eliminar elemento",
+  "customContentConfirmRemoveItemMessage": "¿Seguro que quieres eliminar este elemento de la plantilla?",
+  "customContentErrorEmpty": "Debes añadir al menos un elemento antes de continuar.",
+  "customContentContinueButton": "Continuar a los ajustes",
+  "customItemBadgeImage": "Imagen",
+  "customItemBadgeAudio": "Audio",
+  "customItemBadgeVideo": "Vídeo",
+
+  "mediaViewerClose": "Cerrar",
+  "mediaViewerImageTitle": "Vista previa de imagen",
+  "mediaViewerAudioTitle": "Reproductor de audio",
+  "mediaViewerVideoTitle": "Reproductor de vídeo",
+  "mediaViewerImageHint": "Pellizca para ampliar o reducir la imagen.",
+  "mediaViewerAudioPlay": "Reproducir",
+  "mediaViewerAudioPause": "Pausar",
+  "mediaViewerErrorLoad": "No se pudo cargar el archivo. Inténtalo de nuevo.",
+
+  "mediaViewerSkipBack": "Retroceder 10 segundos",
+  "mediaViewerSkipForward": "Avanzar 10 segundos",
+  "mediaViewerSpeed": "Velocidad de reproducción",
+  "mediaViewerSpeedCurrent": "{speed}x",
+  "@mediaViewerSpeedCurrent": {
+    "placeholders": {
+      "speed": {
+        "type": "String"
+      }
+    }
+  }
 }

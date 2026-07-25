@@ -32,6 +32,12 @@ set(CMAKE_CXX_FLAGS_PROFILE "${CMAKE_CXX_FLAGS_RELEASE}")
 # Use Unicode for all projects.
 add_definitions(-DUNICODE -D_UNICODE)
 
+# Silence the C++ deprecation warning forced by recent Visual Studio versions
+# when plugins still rely on the experimental coroutine header. Affects mainly
+# just_audio_windows at the time of writing and can be removed once that plugin
+# migrates to the standard C++20 coroutine header.
+add_definitions(-D_SILENCE_EXPERIMENTAL_COROUTINE_DEPRECATION_WARNINGS)
+
 # Compilation settings that should be applied to most targets.
 #
 # Be cautious about adding new options here, as plugins use this function by

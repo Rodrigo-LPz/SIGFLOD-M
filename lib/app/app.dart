@@ -22,6 +22,9 @@ import '../features/templates/presentation/pages/template_settings_page.dart';
 import '../features/templates/presentation/pages/template_type_page.dart';
 import '../features/templates/presentation/pages/template_words_page.dart';
 import '../features/templates/presentation/pages/templates_page.dart';
+import '../features/templates/presentation/pages/wizards/common/general_config_page.dart';
+import '../features/templates/presentation/pages/wizards/custom/custom_content_page.dart';
+import '../features/templates/presentation/pages/wizards/custom/custom_item_editor_page.dart';
 import '../l10n/app_localizations.dart';
 
 class SigflodApp extends StatefulWidget {
@@ -148,6 +151,15 @@ class _SigflodAppState extends State<SigflodApp> {
                     const TemplateSettingsPage(),
                 AppRoutes.templatePreview: (context) =>
                     const TemplatePreviewPage(),
+
+                AppRoutes.wizardGeneralConfig: (context) =>
+                    const WizardGeneralConfigPage(),
+
+                AppRoutes.wizardCustomContent: (context) =>
+                    const CustomContentPage(),
+
+                AppRoutes.wizardCustomItemEditor: (context) =>
+                    const CustomItemEditorPage(),
 
                 AppRoutes.createActivity: (context) =>
                     const CreateActivityPage(),

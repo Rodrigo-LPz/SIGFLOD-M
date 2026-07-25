@@ -1573,6 +1573,318 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Categorización'**
   String get vocabularyModeCategorization;
+
+  /// No description provided for @customItemEditorTitleNew.
+  ///
+  /// In es, this message translates to:
+  /// **'Nuevo elemento'**
+  String get customItemEditorTitleNew;
+
+  /// No description provided for @customItemEditorTitleEdit.
+  ///
+  /// In es, this message translates to:
+  /// **'Editar elemento'**
+  String get customItemEditorTitleEdit;
+
+  /// No description provided for @customItemTextLabel.
+  ///
+  /// In es, this message translates to:
+  /// **'Texto del elemento'**
+  String get customItemTextLabel;
+
+  /// No description provided for @customItemTextHint.
+  ///
+  /// In es, this message translates to:
+  /// **'Introduce el texto que verá el paciente'**
+  String get customItemTextHint;
+
+  /// No description provided for @customItemSectionImage.
+  ///
+  /// In es, this message translates to:
+  /// **'Imagen'**
+  String get customItemSectionImage;
+
+  /// No description provided for @customItemSectionAudio.
+  ///
+  /// In es, this message translates to:
+  /// **'Audio'**
+  String get customItemSectionAudio;
+
+  /// No description provided for @customItemSectionVideo.
+  ///
+  /// In es, this message translates to:
+  /// **'Vídeo'**
+  String get customItemSectionVideo;
+
+  /// No description provided for @customItemAddImage.
+  ///
+  /// In es, this message translates to:
+  /// **'Añadir imagen'**
+  String get customItemAddImage;
+
+  /// No description provided for @customItemChangeImage.
+  ///
+  /// In es, this message translates to:
+  /// **'Cambiar imagen'**
+  String get customItemChangeImage;
+
+  /// No description provided for @customItemRemoveImage.
+  ///
+  /// In es, this message translates to:
+  /// **'Eliminar imagen'**
+  String get customItemRemoveImage;
+
+  /// No description provided for @customItemAddAudio.
+  ///
+  /// In es, this message translates to:
+  /// **'Añadir audio'**
+  String get customItemAddAudio;
+
+  /// No description provided for @customItemChangeAudio.
+  ///
+  /// In es, this message translates to:
+  /// **'Cambiar audio'**
+  String get customItemChangeAudio;
+
+  /// No description provided for @customItemRemoveAudio.
+  ///
+  /// In es, this message translates to:
+  /// **'Eliminar audio'**
+  String get customItemRemoveAudio;
+
+  /// No description provided for @customItemAddVideo.
+  ///
+  /// In es, this message translates to:
+  /// **'Añadir vídeo'**
+  String get customItemAddVideo;
+
+  /// No description provided for @customItemChangeVideo.
+  ///
+  /// In es, this message translates to:
+  /// **'Cambiar vídeo'**
+  String get customItemChangeVideo;
+
+  /// No description provided for @customItemRemoveVideo.
+  ///
+  /// In es, this message translates to:
+  /// **'Eliminar vídeo'**
+  String get customItemRemoveVideo;
+
+  /// No description provided for @customItemSaveButton.
+  ///
+  /// In es, this message translates to:
+  /// **'Guardar elemento'**
+  String get customItemSaveButton;
+
+  /// No description provided for @customItemImagePreview.
+  ///
+  /// In es, this message translates to:
+  /// **'Imagen seleccionada'**
+  String get customItemImagePreview;
+
+  /// No description provided for @customItemAudioPreview.
+  ///
+  /// In es, this message translates to:
+  /// **'Audio seleccionado'**
+  String get customItemAudioPreview;
+
+  /// No description provided for @customItemVideoPreview.
+  ///
+  /// In es, this message translates to:
+  /// **'Vídeo seleccionado'**
+  String get customItemVideoPreview;
+
+  /// No description provided for @customItemErrorEmptyText.
+  ///
+  /// In es, this message translates to:
+  /// **'El texto del elemento no puede estar vacío.'**
+  String get customItemErrorEmptyText;
+
+  /// No description provided for @customItemConfirmRemoveImageTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Eliminar imagen'**
+  String get customItemConfirmRemoveImageTitle;
+
+  /// No description provided for @customItemConfirmRemoveImageMessage.
+  ///
+  /// In es, this message translates to:
+  /// **'¿Seguro que quieres eliminar la imagen de este elemento?'**
+  String get customItemConfirmRemoveImageMessage;
+
+  /// No description provided for @customItemConfirmRemoveAudioTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Eliminar audio'**
+  String get customItemConfirmRemoveAudioTitle;
+
+  /// No description provided for @customItemConfirmRemoveAudioMessage.
+  ///
+  /// In es, this message translates to:
+  /// **'¿Seguro que quieres eliminar el audio de este elemento?'**
+  String get customItemConfirmRemoveAudioMessage;
+
+  /// No description provided for @customItemConfirmRemoveVideoTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Eliminar vídeo'**
+  String get customItemConfirmRemoveVideoTitle;
+
+  /// No description provided for @customItemConfirmRemoveVideoMessage.
+  ///
+  /// In es, this message translates to:
+  /// **'¿Seguro que quieres eliminar el vídeo de este elemento?'**
+  String get customItemConfirmRemoveVideoMessage;
+
+  /// No description provided for @customContentTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Contenido de la plantilla'**
+  String get customContentTitle;
+
+  /// No description provided for @customContentEmpty.
+  ///
+  /// In es, this message translates to:
+  /// **'Todavía no has añadido ningún elemento.'**
+  String get customContentEmpty;
+
+  /// No description provided for @customContentEmptyHint.
+  ///
+  /// In es, this message translates to:
+  /// **'Pulsa el botón para crear el primero.'**
+  String get customContentEmptyHint;
+
+  /// No description provided for @customContentAddItem.
+  ///
+  /// In es, this message translates to:
+  /// **'Añadir elemento'**
+  String get customContentAddItem;
+
+  /// No description provided for @customContentItemsCount.
+  ///
+  /// In es, this message translates to:
+  /// **'{count, plural, =0{Sin elementos} =1{1 elemento} other{{count} elementos}}'**
+  String customContentItemsCount(int count);
+
+  /// No description provided for @customContentReorderHint.
+  ///
+  /// In es, this message translates to:
+  /// **'Mantén pulsado un elemento y arrástralo para reordenar la lista.'**
+  String get customContentReorderHint;
+
+  /// No description provided for @customContentConfirmRemoveItemTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Eliminar elemento'**
+  String get customContentConfirmRemoveItemTitle;
+
+  /// No description provided for @customContentConfirmRemoveItemMessage.
+  ///
+  /// In es, this message translates to:
+  /// **'¿Seguro que quieres eliminar este elemento de la plantilla?'**
+  String get customContentConfirmRemoveItemMessage;
+
+  /// No description provided for @customContentErrorEmpty.
+  ///
+  /// In es, this message translates to:
+  /// **'Debes añadir al menos un elemento antes de continuar.'**
+  String get customContentErrorEmpty;
+
+  /// No description provided for @customContentContinueButton.
+  ///
+  /// In es, this message translates to:
+  /// **'Continuar a los ajustes'**
+  String get customContentContinueButton;
+
+  /// No description provided for @customItemBadgeImage.
+  ///
+  /// In es, this message translates to:
+  /// **'Imagen'**
+  String get customItemBadgeImage;
+
+  /// No description provided for @customItemBadgeAudio.
+  ///
+  /// In es, this message translates to:
+  /// **'Audio'**
+  String get customItemBadgeAudio;
+
+  /// No description provided for @customItemBadgeVideo.
+  ///
+  /// In es, this message translates to:
+  /// **'Vídeo'**
+  String get customItemBadgeVideo;
+
+  /// No description provided for @mediaViewerClose.
+  ///
+  /// In es, this message translates to:
+  /// **'Cerrar'**
+  String get mediaViewerClose;
+
+  /// No description provided for @mediaViewerImageTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Vista previa de imagen'**
+  String get mediaViewerImageTitle;
+
+  /// No description provided for @mediaViewerAudioTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Reproductor de audio'**
+  String get mediaViewerAudioTitle;
+
+  /// No description provided for @mediaViewerVideoTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Reproductor de vídeo'**
+  String get mediaViewerVideoTitle;
+
+  /// No description provided for @mediaViewerImageHint.
+  ///
+  /// In es, this message translates to:
+  /// **'Pellizca para ampliar o reducir la imagen.'**
+  String get mediaViewerImageHint;
+
+  /// No description provided for @mediaViewerAudioPlay.
+  ///
+  /// In es, this message translates to:
+  /// **'Reproducir'**
+  String get mediaViewerAudioPlay;
+
+  /// No description provided for @mediaViewerAudioPause.
+  ///
+  /// In es, this message translates to:
+  /// **'Pausar'**
+  String get mediaViewerAudioPause;
+
+  /// No description provided for @mediaViewerErrorLoad.
+  ///
+  /// In es, this message translates to:
+  /// **'No se pudo cargar el archivo. Inténtalo de nuevo.'**
+  String get mediaViewerErrorLoad;
+
+  /// No description provided for @mediaViewerSkipBack.
+  ///
+  /// In es, this message translates to:
+  /// **'Retroceder 10 segundos'**
+  String get mediaViewerSkipBack;
+
+  /// No description provided for @mediaViewerSkipForward.
+  ///
+  /// In es, this message translates to:
+  /// **'Avanzar 10 segundos'**
+  String get mediaViewerSkipForward;
+
+  /// No description provided for @mediaViewerSpeed.
+  ///
+  /// In es, this message translates to:
+  /// **'Velocidad de reproducción'**
+  String get mediaViewerSpeed;
+
+  /// No description provided for @mediaViewerSpeedCurrent.
+  ///
+  /// In es, this message translates to:
+  /// **'{speed}x'**
+  String mediaViewerSpeedCurrent(String speed);
 }
 
 class _AppLocalizationsDelegate

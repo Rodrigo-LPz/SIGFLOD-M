@@ -51,7 +51,13 @@ dependencies:
 
   # --- IMAGE HANDLING ---
   image_picker: ^1.1.2  # Plugin that allows the user to select an image from the device gallery or take a photo with the camera, used for capturing patient profile pictures.
-  image: ^4.5.2         # Pure Dart library for image processing, used for resizing and compressing pictures before encoding them as Base64.
+  file_picker: ^11.0.2   # Plugin that allows the user to pick files from the device's file system, used for selecting images or other files to be uploaded to Firebase Storage.
+  image: ^4.5.2         # Pure Dart library for image processing, used for resizing and compressing pictures before uploading them to Firebase Storage.
+
+  # --- MEDIA PLAYBACK ---
+  media_kit: ^1.1.11            # Cross-platform media engine that unifies audio and video playback across Android, iOS, macOS, Windows, Linux and web with a single API.
+  media_kit_video: ^2.0.1       # Official Flutter widget that renders the media_kit video output natively on every supported platform.
+  media_kit_libs_video: ^1.0.5  # Bundles libmpv and codecs inside the application binary so end users do not need to install any system-level multimedia libraries.
 
   # --- LOCALIZATION ---
   flutter_localizations:
@@ -70,7 +76,6 @@ dev_dependencies:
   flutter_launcher_icons: ^0.14.4
 
 # For information on the generic Dart part of this file, see the following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter packages.
 flutter:
   # The following line ensures that the Material Icons font is included with your application, so that you can use the icons in the material Icons class.

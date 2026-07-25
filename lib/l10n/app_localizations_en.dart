@@ -784,4 +784,179 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get vocabularyModeCategorization => 'Categorization';
+
+  @override
+  String get customItemEditorTitleNew => 'New item';
+
+  @override
+  String get customItemEditorTitleEdit => 'Edit item';
+
+  @override
+  String get customItemTextLabel => 'Item text';
+
+  @override
+  String get customItemTextHint => 'Enter the text the patient will see';
+
+  @override
+  String get customItemSectionImage => 'Image';
+
+  @override
+  String get customItemSectionAudio => 'Audio';
+
+  @override
+  String get customItemSectionVideo => 'Video';
+
+  @override
+  String get customItemAddImage => 'Add image';
+
+  @override
+  String get customItemChangeImage => 'Change image';
+
+  @override
+  String get customItemRemoveImage => 'Remove image';
+
+  @override
+  String get customItemAddAudio => 'Add audio';
+
+  @override
+  String get customItemChangeAudio => 'Change audio';
+
+  @override
+  String get customItemRemoveAudio => 'Remove audio';
+
+  @override
+  String get customItemAddVideo => 'Add video';
+
+  @override
+  String get customItemChangeVideo => 'Change video';
+
+  @override
+  String get customItemRemoveVideo => 'Remove video';
+
+  @override
+  String get customItemSaveButton => 'Save item';
+
+  @override
+  String get customItemImagePreview => 'Selected image';
+
+  @override
+  String get customItemAudioPreview => 'Selected audio';
+
+  @override
+  String get customItemVideoPreview => 'Selected video';
+
+  @override
+  String get customItemErrorEmptyText => 'The item text cannot be empty.';
+
+  @override
+  String get customItemConfirmRemoveImageTitle => 'Remove image';
+
+  @override
+  String get customItemConfirmRemoveImageMessage =>
+      'Are you sure you want to remove the image from this item?';
+
+  @override
+  String get customItemConfirmRemoveAudioTitle => 'Remove audio';
+
+  @override
+  String get customItemConfirmRemoveAudioMessage =>
+      'Are you sure you want to remove the audio from this item?';
+
+  @override
+  String get customItemConfirmRemoveVideoTitle => 'Remove video';
+
+  @override
+  String get customItemConfirmRemoveVideoMessage =>
+      'Are you sure you want to remove the video from this item?';
+
+  @override
+  String get customContentTitle => 'Template content';
+
+  @override
+  String get customContentEmpty => 'You haven\'t added any items yet.';
+
+  @override
+  String get customContentEmptyHint =>
+      'Tap the button to create the first one.';
+
+  @override
+  String get customContentAddItem => 'Add item';
+
+  @override
+  String customContentItemsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count items',
+      one: '1 item',
+      zero: 'No items',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get customContentReorderHint =>
+      'Press and hold an item, then drag to reorder the list.';
+
+  @override
+  String get customContentConfirmRemoveItemTitle => 'Remove item';
+
+  @override
+  String get customContentConfirmRemoveItemMessage =>
+      'Are you sure you want to remove this item from the template?';
+
+  @override
+  String get customContentErrorEmpty =>
+      'You must add at least one item before continuing.';
+
+  @override
+  String get customContentContinueButton => 'Continue to settings';
+
+  @override
+  String get customItemBadgeImage => 'Image';
+
+  @override
+  String get customItemBadgeAudio => 'Audio';
+
+  @override
+  String get customItemBadgeVideo => 'Video';
+
+  @override
+  String get mediaViewerClose => 'Close';
+
+  @override
+  String get mediaViewerImageTitle => 'Image preview';
+
+  @override
+  String get mediaViewerAudioTitle => 'Audio player';
+
+  @override
+  String get mediaViewerVideoTitle => 'Video player';
+
+  @override
+  String get mediaViewerImageHint => 'Pinch to zoom in or out of the image.';
+
+  @override
+  String get mediaViewerAudioPlay => 'Play';
+
+  @override
+  String get mediaViewerAudioPause => 'Pause';
+
+  @override
+  String get mediaViewerErrorLoad =>
+      'Failed to load the file. Please try again.';
+
+  @override
+  String get mediaViewerSkipBack => 'Skip back 10 seconds';
+
+  @override
+  String get mediaViewerSkipForward => 'Skip forward 10 seconds';
+
+  @override
+  String get mediaViewerSpeed => 'Playback speed';
+
+  @override
+  String mediaViewerSpeedCurrent(String speed) {
+    return '${speed}x';
+  }
 }
